@@ -6,6 +6,7 @@ import { locale as de } from './i18n/de'
 import { locale as pt } from './i18n/pt'
 
 import { CoreTranslationService } from '@core/services/translation.service'
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-sample',
@@ -13,15 +14,31 @@ import { CoreTranslationService } from '@core/services/translation.service'
   styleUrls: ['./sample.component.scss']
 })
 export class SampleComponent implements OnInit {
-  public contentHeader: object
+
+  form: FormGroup;
+
+  form2: FormGroup;
 
   /**
    *
    * @param {CoreTranslationService} _coreTranslationService
    */
-  constructor(private _coreTranslationService: CoreTranslationService) {
-    this._coreTranslationService.translate(en, fr, de, pt)
-  }
+  constructor(
+    private readonly formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      cultivo: ['', Validators.required],
+      inversion: ['', Validators.required],
+      toneladas: ['', Validators.required],
+      ganancias: ['', Validators.required],
+      fechaInversion: ['', Validators.required],
+      fechaRecaudacion: ['', Validators.required]
+    });
+
+    this.form2 = this.formBuilder.group({
+      nombre: ['', Validators.required]
+    });
+   }
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
@@ -30,23 +47,13 @@ export class SampleComponent implements OnInit {
    * On init
    */
   ngOnInit() {
-    this.contentHeader = {
-      headerTitle: 'Home',
-      actionButton: true,
-      breadcrumb: {
-        type: '',
-        links: [
-          {
-            name: 'Home',
-            isLink: true,
-            link: '/'
-          },
-          {
-            name: 'Sample',
-            isLink: false
-          }
-        ]
-      }
-    }
+  }
+
+  enviar(){
+
+  }
+
+  guardar(){
+
   }
 }

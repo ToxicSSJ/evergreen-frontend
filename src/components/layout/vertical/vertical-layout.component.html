@@ -1,23 +1,15 @@
-<!-- NAVBAR -->
-<ng-container *ngTemplateOutlet="navbar"></ng-container>
-<!--/ NAVBAR -->
-
-<!-- MENU -->
-<ng-container *ngTemplateOutlet="menu"></ng-container>
-<!--/ MENU -->
-
 <!-- APP-CONTENT -->
-<div class="app-content content">
+<div class="app-content">
   <div class="content-overlay"></div>
-  <div class="header-navbar-shadow" *ngIf="!coreConfig.layout.navbar.hidden"></div>
   <!-- CONTENT -->
-  <content></content>
+  <div class="margin-all">
+    <content></content>
+  </div>
   <!--/ CONTENT -->
 </div>
 <!--/ APP-CONTENT -->
 
 <!-- FOOTER -->
-<ng-container *ngTemplateOutlet="footer"></ng-container>
 <!--/ FOOTER -->
 
 <!-- PARTIALS ---------------------------------------------------------------------------------------- -->

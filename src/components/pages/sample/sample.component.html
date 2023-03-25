@@ -1,27 +1,141 @@
 <div class="content-wrapper">
   <div class="content-body">
-    <!-- content-header component -->
-    <app-content-header [contentHeader]="contentHeader"></app-content-header>
-
-    <!-- Basic Alerts start -->
-    <section id="sample-page">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">{{ 'SAMPLE.AWESOME' | translate }}</h4>
-            </div>
-            <div class="card-body pb-1">
-              <p class="card-text">This is your second page.</p>
-              <p class="card-text">
-                Chocolate sesame snaps pie carrot cake pastry pie lollipop muffin. Carrot cake dragée chupa chups
-                jujubes. Macaroon liquorice cookie wafer tart marzipan bonbon. Gingerbread jelly-o dragée chocolate.
-              </p>
-            </div>
-          </div>
+    <h1>Proyectar Ganacia</h1>
+    <br>
+    <form [formGroup]="form">
+      <div class="row match-height">
+        <div class="col-sm-6 col-12">
+          <label for="valid-state">Cultivo</label>
+          <input formControlName="cultivo"
+                 type="text"
+                 class="form-control"
+                 id="valid-state"
+                 required
+          />
+        </div>
+        <div class="col-sm-6 col-12">
+          <label for="">Inversion</label>
+          <input formControlName="inversion"
+                 type="text"
+                 class="form-control"
+                 required
+          />
+          <br>
+        </div>
+        <div class="col-sm-6 col-12">
+          <label for="">Toneladas</label>
+          <input formControlName="toneladas"
+                 type="text"
+                 class="form-control"
+                 required
+          />
+          <br>
+        </div>
+        <div class="col-sm-6 col-12">
+          <label for="">Ganancias</label>
+          <input formControlName="ganancias"
+                 type="text"
+                 class="form-control"
+                 required
+          />
+        </div>
+        <div class="col-sm-6 col-12">
+          <label for="">Fecha de inversión</label>
+          <input formControlName="fechaInversion"
+                 type="text"
+                 class="form-control"
+                 required
+          />
+        </div>
+        <div class="col-sm-6 col-12">
+          <label for="">Fecha de recaudacion</label>
+          <input formControlName="fechaRecaudacion"
+                 type="text"
+                 class="form-control"
+                 required
+          />
         </div>
       </div>
-    </section>
-    <!-- Basic Alerts end -->
+      <br>
+      <button type="button" class="btn btn-primary" rippleEffect
+              (click)="enviar()"
+      >Estimar</button>
+    </form>
+    <br>
+    <h1>Proyección Realizada</h1>
+    <br>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Tipo de cultivo</th>
+        <th scope="col">Inversión</th>
+        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Fecha de inversión</th>
+        <th scope="col">Fecha de recolección</th>
+        <th scope="col">IEA</th>
+        <th scope="col">Ganancia proyectada</th>
+        <th scope="col">Toneladas</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>12</td>
+        <td>@mdo</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+      </tbody>
+    </table>
+    <form [formGroup]="form2">
+      <div class="col-sm-6 col-12">
+        <label for="">Nombre</label>
+        <input formControlName="nombre"
+               type="text"
+               class="form-control"
+               required
+        />
+      </div>
+      <br>
+
+        <button type="button" class="btn btn-primary" rippleEffect
+                (click)="guardar()"
+        >Guardar</button>
+    </form>
+
+    <br>
+    <h1>Proyecciónes Anteriores</h1>
+    <br>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo de cultivo</th>
+        <th scope="col">Inversión</th>
+        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Fecha de inversión</th>
+        <th scope="col">Fecha de recolección</th>
+        <th scope="col">IEA</th>
+        <th scope="col">Ganancia proyectada</th>
+        <th scope="col">Toneladas</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>nombre</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>12</td>
+        <td>@mdo</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>

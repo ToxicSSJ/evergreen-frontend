@@ -1,32 +1,64 @@
 <div class="content-wrapper">
   <div class="content-body">
+    <h1>Consulta atmosférica</h1>
+    <br>
     <!-- content-header component -->
-    <app-content-header [contentHeader]="contentHeader"></app-content-header>
 
     <!-- Basic Alerts start -->
-    <section id="home-page">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">Kick start your project 🚀</h4>
-            </div>
-            <div class="card-body pb-1">
-              <p class="card-text">All the best for your new project.</p>
-              <p class="card-text">
-                Please make sure to read our
-                <a
-                  href="https://pixinvent.com/demo/vuexy-angular-admin-dashboard-template/documentation/"
-                  target="_blank"
-                  >Template Documentation</a
-                >
-                to understand where to go from here and how to use our template.
-              </p>
-            </div>
-          </div>
-        </div>
+    <form [formGroup]="form">
+    <div class="row match-height">
+      <div class="col-12">
       </div>
-    </section>
+      <div class="col-sm-6 col-12">
+        <label for="valid-state">Latitud</label>
+        <input formControlName="latitud"
+          type="text"
+          class="form-control"
+          id="valid-state"
+          required
+        />
+      </div>
+      <div class="col-sm-6 col-12">
+        <label for="invalid-state">Longitud</label>
+        <input formControlName="longitud"
+          type="text"
+          class="form-control"
+          id="invalid-state"
+          required
+        />
+        <div class="invalid-feedback">This is invalid state.</div>
+      </div>
+    </div>
+      <br>
+      <button type="button" class="btn btn-primary" rippleEffect
+              (click)="enviar()"
+      >Enviar</button>
+    </form>
+    <br>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Longitud</th>
+        <th scope="col">Latitud</th>
+        <th scope="col">Presión atmosferica</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">Humedad</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>12</td>
+      </tr>
+      </tbody>
+    </table>
     <!-- Basic Alerts end -->
+    <br>
+    <button type="button" class="btn btn-primary" rippleEffect
+            (click)="consultar()"
+    >Consultar</button>
   </div>
 </div>

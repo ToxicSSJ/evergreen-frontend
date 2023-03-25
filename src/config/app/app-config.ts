@@ -16,9 +16,9 @@ import { CoreConfig } from '@core/types'
 // prettier-ignore
 export const coreConfig: CoreConfig = {
   app: {
-    appName     : '7Wayops',                                // App Name
-    appTitle    : '7Wayops',                                // App Title
-    appLogoImage: 'assets/images/7wayops/wayops-logo.png',  // App Logo
+    appName     : 'Evergreen planeación',                                // App Name
+    appTitle    : 'Evergreen planeación',                                // App Title
+    appLogoImage: '',// App Logo
   },
   layout: {
     skin  : 'default',                        // default, dark, bordered, semi-dark
@@ -44,7 +44,7 @@ export const coreConfig: CoreConfig = {
     },
     enableLocalStorage: true,
     customizer  : false,                       // Boolean: true, false (Enable theme customizer)
-    scrollTop   : false,                       // Boolean: true, false (Enable scroll to top button)
+    scrollTop   : true,                       // Boolean: true, false (Enable scroll to top button)
     buyNow      : false                        // Boolean: true, false (Set false in real project, For demo purpose only)
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,19 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
 
-  public contentHeader: object
+  form: FormGroup;
+
+  table: any;
+  constructor(
+    private readonly formBuilder: FormBuilder,
+  ) {
+
+    this.form = this.formBuilder.group({
+        longitud: ['', Validators.required],
+        latitud:  ['', Validators.required]
+    });
+  }
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
@@ -17,23 +28,13 @@ export class HomeComponent implements OnInit {
    * On init
    */
   ngOnInit() {
-    this.contentHeader = {
-      headerTitle: 'Home',
-      actionButton: true,
-      breadcrumb: {
-        type: '',
-        links: [
-          {
-            name: 'Home',
-            isLink: true,
-            link: '/'
-          },
-          {
-            name: 'Sample',
-            isLink: false
-          }
-        ]
-      }
-    }
+  }
+
+  enviar():void{
+    console.log(this.form.controls.longitud.value);
+  }
+
+  consultar():void {
+
   }
 }
