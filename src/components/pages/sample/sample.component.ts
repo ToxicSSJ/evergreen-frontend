@@ -74,17 +74,11 @@ export class SampleComponent implements OnInit {
 
   guardar(){
 
-    const body = {
-      "name": this.form2.controls.nombre.value,
-      "type": this.dataProyeccionRealizada.type,
-      "investment": this.dataProyeccionRealizada.investment,
-      "tons": this.dataProyeccionRealizada.tons,
-      "estimated": this.dataProyeccionRealizada.estimated,
-      "startDate": this.dataProyeccionRealizada.startDate,
-      "endDate": this.dataProyeccionRealizada.endDate
-    }
+   this.dataProyeccionRealizada['name'] = this.form2.controls.nombre.value;
 
-      this._evergreenServie.actualizarGanancia(body).subscribe(
+   console.log(this.dataProyeccionRealizada);
+
+      this._evergreenServie.actualizarGanancia(this.dataProyeccionRealizada).subscribe(
         res => {
           console.log("Guardado", res);
         },
