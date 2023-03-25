@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {EvergreenService} from "@services/evergreen.sertive";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   table: any;
   constructor(
     private readonly formBuilder: FormBuilder,
+    private _evergreenServie: EvergreenService
   ) {
 
     this.form = this.formBuilder.group({
@@ -31,10 +33,30 @@ export class HomeComponent implements OnInit {
   }
 
   enviar():void{
-    console.log(this.form.controls.longitud.value);
+    const body = {
+      "longitude": this.form.controls.longitud.value,
+      "latitude": this.form.controls.latitud.value
+    }
+    console.log(body);
+    this._evergreenServie.setPredio(body).subscribe(
+      res => {
+        console.log(res);
+      },
+      e => {
+        console.log(e);
+      }
+    );
   }
 
   consultar():void {
-
+      this._evergreenServie.getPredio().subscribe(
+        res => {
+          console.log(res);
+          this.table = res[res.length -1];
+        },
+        e => {
+          console.log(e)
+        }
+      );
   }
 }
