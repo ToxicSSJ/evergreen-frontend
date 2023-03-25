@@ -64,29 +64,31 @@
     <br>
     <h1>Proyección Realizada</h1>
     <br>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" *ngIf="dataProyeccionRealizada">
       <thead>
       <tr>
         <th scope="col">Tipo de cultivo</th>
         <th scope="col">Inversión</th>
-        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Toneladas</th>
         <th scope="col">Fecha de inversión</th>
         <th scope="col">Fecha de recolección</th>
-        <th scope="col">IEA</th>
+        <th scope="col">Interes</th>
         <th scope="col">Ganancia proyectada</th>
-        <th scope="col">Toneladas</th>
+        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Porcentaje de ganancia</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>12</td>
-        <td>@mdo</td>
-        <td>12</td>
-        <td>12</td>
+        <td>{{dataProyeccionRealizada.corpType}}</td>
+        <td>{{dataProyeccionRealizada.investment}}</td>
+        <td>{{dataProyeccionRealizada.tons}}</td>
+        <td>{{dataProyeccionRealizada.investmentDate}}</td>
+        <td>{{dataProyeccionRealizada.harvestingDate}}</td>
+        <td>{{dataProyeccionRealizada.interest}}</td>
+        <td>{{dataProyeccionRealizada.estimatedProfit}}</td>
+        <td>{{dataProyeccionRealizada.projectedProfit}}</td>
+        <td>{{dataProyeccionRealizada.percentage}}</td>
       </tr>
       </tbody>
     </table>
@@ -109,31 +111,33 @@
     <br>
     <h1>Proyecciónes Anteriores</h1>
     <br>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" *ngIf="dataProyeccionAnterior">
       <thead>
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Tipo de cultivo</th>
         <th scope="col">Inversión</th>
-        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Toneladas</th>
         <th scope="col">Fecha de inversión</th>
         <th scope="col">Fecha de recolección</th>
-        <th scope="col">IEA</th>
+        <th scope="col">Interes</th>
         <th scope="col">Ganancia proyectada</th>
-        <th scope="col">Toneladas</th>
+        <th scope="col">Ganancia Estimada</th>
+        <th scope="col">Porcentaje de ganancia</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>nombre</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>12</td>
-        <td>@mdo</td>
-        <td>12</td>
-        <td>12</td>
+      <tr *ngFor="let item of dataProyeccionAnterior">
+        <th scope="row">{{item.name}}</th>
+        <td>{{item.corpType}}</td>
+        <td>{{item.investment}}</td>
+        <td>{{item.tons}}</td>
+        <td>{{item.investmentDate}}</td>
+        <td>{{item.harvestingDate}}</td>
+        <td>{{item.interest}}</td>
+        <td>{{item.estimatedProfit}}</td>
+        <td>{{item.projectedProfit}}</td>
+        <td>{{item.percentage}}</td>
       </tr>
       </tbody>
     </table>

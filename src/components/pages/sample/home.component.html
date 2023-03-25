@@ -35,7 +35,7 @@
       >Enviar</button>
     </form>
     <br>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" *ngIf="table">
       <thead>
       <tr>
         <th scope="col">Longitud</th>
@@ -47,11 +47,11 @@
       </thead>
       <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>12</td>
+        <th scope="row">{{table.latitude}}</th>
+        <td>{{table.latitude}}</td>
+        <td>{{table.lastPressure}}</td>
+        <td>{{table.lastTemperature}}</td>
+        <td>{{table.lastHumidity}}</td>
       </tr>
       </tbody>
     </table>
